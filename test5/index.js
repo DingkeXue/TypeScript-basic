@@ -1,4 +1,3 @@
-"use strict";
 function createArray(x, y) {
     var result = [];
     for (var i = 0; i < x; i++) {
