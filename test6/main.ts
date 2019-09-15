@@ -118,3 +118,21 @@ function mySum6(array: any[], ...items: any[]) {
     });
 }
 console.log(mySum6([], 1, 2, '3'));
+
+// 类型练习
+interface SumValue  {
+    money: number,
+    count: (value: number) => void
+}
+let sumValue: SumValue = {
+    money: 20,
+    count(value: number): void {
+        this.money += value;
+    }
+} ;
+let handleCount: {name: string, sumValue: SumValue, friends: string[]} = {
+    name: 'Foo',
+    sumValue: sumValue,
+    friends: ['1', '2']
+};
+handleCount.sumValue.count(20);

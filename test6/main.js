@@ -109,3 +109,15 @@ function mySum6(array) {
     });
 }
 console.log(mySum6([], 1, 2, '3'));
+var sumValue = {
+    money: 20,
+    count: function (value) {
+        this.money += value;
+    }
+};
+var handleCount = {
+    name: 'Foo',
+    sumValue: sumValue,
+    friends: ['1', '2']
+};
+handleCount.sumValue.count(20);
