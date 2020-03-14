@@ -4,14 +4,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const data_1 = require("../../data/data");
+const postsSummary_1 = require("../../model/shared/postsSummary");
 exports.apiGetPosts = (req, res) => {
-    res.json(data_1.DataStore.posts);
-};
-exports.apiGetPostsDetail = (req, res) => {
-    let id = req.params.id;
-    data_1.DataStore.posts.forEach((item) => {
-        if (item.id == id) {
-            res.json(item);
-        }
-    });
+    // 使用 PostsSummary 类确保输出的数据是符合要求的
+    res.json(data_1.DataStore.posts.map((item) => new postsSummary_1.PostsSummary(item)));
 };

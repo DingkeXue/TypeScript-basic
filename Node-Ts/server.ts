@@ -3,7 +3,8 @@
  */
 import express from "express";
 // 引入 RequestHandler
-import { apiGetPosts, apiGetPostsDetail } from "./api/posts/apiGetPosts";
+import { apiGetPosts } from "./api/posts/apiGetPosts";
+import { apiGetPostsDetail } from "./api/posts/apiGetPostsDetail"
 
 const app = express();
 

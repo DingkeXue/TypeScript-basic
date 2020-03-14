@@ -4,16 +4,9 @@
 
 import { DataStore } from "../../data/data";
 import { RequestHandler } from "express";
+import { PostsSummary } from "../../model/shared/postsSummary"
 
 export const apiGetPosts:RequestHandler = (req, res) =>{
-	res.json(DataStore.posts);
+	// 使用 PostsSummary 类确保输出的数据是符合要求的
+	res.json(DataStore.posts.map((item:any) => new PostsSummary(item)));
 };
-
-export const apiGetPostsDetail:RequestHandler = (req, res) => {
-	let id = req.params.id;
-	DataStore.posts.forEach((item:any) => {
-		if(item.id == id) {
-			res.json(item);
-		}
-	})
-}

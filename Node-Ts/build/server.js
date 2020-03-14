@@ -9,10 +9,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 // 引入 RequestHandler
 const apiGetPosts_1 = require("./api/posts/apiGetPosts");
+const apiGetPostsDetail_1 = require("./api/posts/apiGetPostsDetail");
 const app = express_1.default();
 // routes
 app.get("/posts", apiGetPosts_1.apiGetPosts);
-app.get("/posts/:id", apiGetPosts_1.apiGetPostsDetail);
+app.get("/posts/:id", apiGetPostsDetail_1.apiGetPostsDetail);
 app.listen(process.env.PORT || 8088, () => {
     console.log("正在监听 8088端口");
 });
