@@ -15,6 +15,7 @@ const apiGetPostsDetail_1 = require("./api/posts/apiGetPostsDetail");
 const apiCreatePost_1 = require("./api/posts/apiCreatePost");
 const apiDeletePost_1 = require("./api/posts/apiDeletePost");
 const apiPutPost_1 = require("./api/posts/apiPutPost");
+const apiUploadeImg_1 = require("./api/posts/apiUploadeImg");
 const app = express_1.default();
 // 使用中间件
 app.use(body_parser_1.default.urlencoded({ extended: false }));
@@ -25,6 +26,8 @@ app.use("/static", express_1.default.static(path_1.default.resolve("./", "public
 app.get("/posts", apiGetPosts_1.apiGetPosts);
 app.get("/posts/:id", apiGetPostsDetail_1.apiGetPostsDetail);
 app.post("/posts", apiCreatePost_1.apiCreatePost);
+// 上传图片
+app.post("/posts/:id/img", apiUploadeImg_1.apiUploadeImg);
 app.delete("/posts/:id", apiDeletePost_1.apiDeletePost);
 app.put("/posts/:id", apiPutPost_1.apiPutPost);
 app.listen(process.env.PORT || 8088, () => {
