@@ -12,6 +12,8 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const apiGetPosts_1 = require("./api/posts/apiGetPosts");
 const apiGetPostsDetail_1 = require("./api/posts/apiGetPostsDetail");
 const apiCreatePost_1 = require("./api/posts/apiCreatePost");
+const apiDeletePost_1 = require("./api/posts/apiDeletePost");
+const apiPutPost_1 = require("./api/posts/apiPutPost");
 const app = express_1.default();
 // 使用中间件
 app.use(body_parser_1.default.urlencoded({ extended: false }));
@@ -20,6 +22,8 @@ app.use(body_parser_1.default.json());
 app.get("/posts", apiGetPosts_1.apiGetPosts);
 app.get("/posts/:id", apiGetPostsDetail_1.apiGetPostsDetail);
 app.post("/posts", apiCreatePost_1.apiCreatePost);
+app.delete("/posts/:id", apiDeletePost_1.apiDeletePost);
+app.put("/posts/:id", apiPutPost_1.apiPutPost);
 app.listen(process.env.PORT || 8088, () => {
     console.log("正在监听 8088端口");
 });

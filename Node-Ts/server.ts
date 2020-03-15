@@ -7,7 +7,8 @@ import bodyParser from "body-parser"
 import { apiGetPosts } from "./api/posts/apiGetPosts";
 import { apiGetPostsDetail } from "./api/posts/apiGetPostsDetail"
 import { apiCreatePost } from "./api/posts/apiCreatePost"
-
+import { apiDeletePost } from "./api/posts/apiDeletePost"
+import { apiPutPost } from "./api/posts/apiPutPost"
 const app = express();
 
 // 使用中间件
@@ -20,6 +21,10 @@ app.get("/posts", apiGetPosts);
 app.get("/posts/:id", apiGetPostsDetail)
 
 app.post("/posts", apiCreatePost)
+
+app.delete("/posts/:id", apiDeletePost)
+
+app.put("/posts/:id", apiPutPost)
 
 app.listen(process.env.PORT || 8088, () => {
 	console.log("正在监听 8088端口");
