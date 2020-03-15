@@ -3,6 +3,7 @@
  */
 import express from "express";
 import bodyParser from "body-parser"
+import path from "path"
 // 引入 RequestHandler
 import { apiGetPosts } from "./api/posts/apiGetPosts";
 import { apiGetPostsDetail } from "./api/posts/apiGetPostsDetail"
@@ -14,6 +15,10 @@ const app = express();
 // 使用中间件
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+// 配置静态文件指向的路径
+app.use("/static", express.static(path.resolve("./", "public", "img")))
+
 
 // routes
 app.get("/posts", apiGetPosts);

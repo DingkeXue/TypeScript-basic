@@ -8,6 +8,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const path_1 = __importDefault(require("path"));
 // 引入 RequestHandler
 const apiGetPosts_1 = require("./api/posts/apiGetPosts");
 const apiGetPostsDetail_1 = require("./api/posts/apiGetPostsDetail");
@@ -18,6 +19,8 @@ const app = express_1.default();
 // 使用中间件
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
+// 配置静态文件指向的路径
+app.use("/static", express_1.default.static(path_1.default.resolve("./", "public", "img")));
 // routes
 app.get("/posts", apiGetPosts_1.apiGetPosts);
 app.get("/posts/:id", apiGetPostsDetail_1.apiGetPostsDetail);

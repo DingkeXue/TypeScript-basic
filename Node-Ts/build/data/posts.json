@@ -3,12 +3,14 @@
         "name": "xdk",
         "id": "1",
         "age": 22,
-        "gender": "male"
+        "gender": "male",
+        "img": ["1.jpg", "3.jpg"]
     },
     {
         "name": "lmw",
         "id": "2",
         "age": 22,
-        "gender": "female"
+        "gender": "female",
+        "img": ["2.jpg"]
     }
 ]

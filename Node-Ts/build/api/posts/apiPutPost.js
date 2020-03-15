@@ -10,7 +10,8 @@ exports.apiPutPost = (req, res) => {
             id: req.params.id || oldData.id,
             name: body.name || oldData.name,
             gender: body.gender || oldData.gender,
-            age: body.age || oldData.age
+            age: body.age || oldData.age,
+            img: oldData.img
         };
         data_1.DataStore.posts[postIndex] = updatePost;
         res.status(200).json({ status: "success", message: "update success" });

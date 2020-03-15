@@ -3,4 +3,5 @@ export interface NewPost {
 	name: string;
 	age: number;
 	gender: string;
+	img: string[];
 }

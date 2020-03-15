@@ -9,7 +9,8 @@ export const apiCreatePost:RequestHandler = (req, res) => {
 		id: uuidv4(),
 		name: req.body.name,
 		gender: req.body.gender,
-		age: req.body.age
+		age: req.body.age,
+		img: req.body.img
 	};
 	DataStore.posts.push(newPost);
 	res.send("ok");

@@ -8,7 +8,8 @@ exports.apiCreatePost = (req, res) => {
         id: uuid_1.v4(),
         name: req.body.name,
         gender: req.body.gender,
-        age: req.body.age
+        age: req.body.age,
+        img: req.body.img
     };
     data_1.DataStore.posts.push(newPost);
     res.send("ok");
